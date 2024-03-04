@@ -37,3 +37,7 @@ class SettingsView(APIView):
             return Response({"Invalid Settigns":bad_setting}, status=200)
         else:
             return Response(status=200)
+        
+        
+def index(request):
+    return render(request, "Hello world!")
