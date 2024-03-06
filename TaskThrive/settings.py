@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 
 from pathlib import Path
-import datetime
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-8rct+fhqnb9-padv8v=vgqaqfdqcj2hzu_1x+6q5dc153o@ws0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://kmzjc3f5-8000.use.devtunnels.ms']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'userAPI',
     'appSettings',
     'rest_framework',
+    'rest_framework_simplejwt',
     'corsheaders',
     
 ]
@@ -144,7 +145,7 @@ REST_FRAMEWORK = {
 
 JWT_AUTH = {
     # how long the original token is valid for
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=3),
+    'JWT_EXPIRATION_DELTA': timedelta(days=3),
     # allow refreshing of tokens
     'JWT_ALLOW_REFRESH': True,
 }
